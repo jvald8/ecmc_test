@@ -5,3 +5,5 @@
 
 Assumptions:
 Defining the last month as the last 30 days.
+Options to get last month worth of IG photos.
+1. Assume there won't be more than 1000 tags in 30 days.

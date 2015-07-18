@@ -1,0 +1,27 @@
+{
+  "name": "ecmc_test",
+  "version": "1.0.0",
+  "description": "Instagram and Flickr Api Image comment counting filtering for last month",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jvald8/ecmc_test.git"
+  },
+  "keywords": [
+    "instagram",
+    "flickr",
+    "hashtag",
+    "images",
+    "comments",
+    "date"
+  ],
+  "author": "Jon Ringvald",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jvald8/ecmc_test/issues"
+  },
+  "homepage": "https://github.com/jvald8/ecmc_test"
+}

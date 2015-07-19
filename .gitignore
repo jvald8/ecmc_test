@@ -1,2 +1,4 @@
 node_modules
 secret_stuff.js
+bower_components
+lib

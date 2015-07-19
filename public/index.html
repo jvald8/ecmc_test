@@ -12,6 +12,7 @@
   <body ng-controller='ImagesController'>
 
     <h1 class='text-center'><strong>Welcome to Flickarama!</strong></h1>
+
     <h2 class='text-center'>The site that let's you search for combined tags on Flickr and Instagram in the past month ordered by comment count!</h2>
 
     <br>
@@ -28,7 +29,10 @@
 
     <div class='container'>
       <div class='row'>
-        <img ng-repeat='image in imagesArray | orderBy:"-comments.count"' class='col-md-4' src='{{image.images.low_resolution.url}}'>
+        <div ng-repeat='image in imagesArray | orderBy:"-comments.count"' class='col-md-4' >
+          <p>Comments: {{image.comments.count}}</p>
+          <img src='{{image.images.low_resolution.url}}'>
+        </div>
       </div>
     </div>
 

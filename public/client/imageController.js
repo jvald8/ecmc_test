@@ -13,7 +13,6 @@ flickarama.controller('ImagesController', function($scope, $http) {
   }
 
   $scope.makeCalls = function() {
-
   // Instagram Call
     var instagramUrl = 'https://api.instagram.com/v1/tags/' + $scope.tag + '/media/recent?client_id=' + $scope.IG_client_id + '&min_timestamp=' + $scope.secondsAMonthAgo + '&max_timestamp=' + $scope.currentTime + '&count=' + 10000 + '&callback=JSON_CALLBACK';
     $http.jsonp(instagramUrl)
@@ -49,6 +48,7 @@ flickarama.controller('ImagesController', function($scope, $http) {
           } else {
             var commentCount = commentObject.comments.comment.length;
           }
+
           // getting images for the photo id
           var imageCall = 'https://api.flickr.com/services/rest/?method=flickr.photos.getSizes&api_key=' + $scope.api_key + '&photo_id=' + x.id + '&format=json'
           $http.get(imageCall)
@@ -65,15 +65,12 @@ flickarama.controller('ImagesController', function($scope, $http) {
             console.log('there was an error in the flickr image call of the image controller')
           })
 
-
-
         })
         .error(function(data, status, headers, config) {
           console.log('there was an error in flickr call')
         })
 
       })
-
     })
     .error(function(data, status, headers, config) {
       console.log('theres been an error in the flickr call of the ImageController')
@@ -81,13 +78,10 @@ flickarama.controller('ImagesController', function($scope, $http) {
 
   }
 
-// initialize the call for #dctech search
+// initialize the call for #dctech search on load
 $scope.makeCalls();
 
-
 })
-
-
 
 // Helper methods
 // Cleans up and parses returned flickr data into a JSON object.

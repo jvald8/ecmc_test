@@ -6,12 +6,21 @@
     </title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
     <script src='../src/client/imageController.js' type='text/javascript'></script>
-    <!--<link rel='stylesheet' src='./style.css'>-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body ng-controller='ImagesController'>
 
-    <div ng-repeat='image in imagesArray | orderBy:"-comments.count"'>
-      <ul><li> Comments: {{image.comments.count}}<img class='listImage' src='{{image.images.low_resolution.url}}'></li></ul>
+    <h1>Welcome to Flickarama!</h1>
+    <h2>The site that let's you search for combined tags on Flickr and Instagram!</h2>
+
+
+
+    <div class='container'>
+      <div class='row'>
+        <img ng-repeat='image in imagesArray | orderBy:"-comments.count"' class='col-md-4' src='{{image.images.low_resolution.url}}'>
+      </div>
     </div>
+
   </body>
 </html>

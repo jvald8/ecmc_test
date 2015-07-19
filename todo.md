@@ -9,4 +9,6 @@ Options to get last month worth of IG photos.
 1. Assume there won't be more than 1000 tags in 30 days.
 2. chose to search for text = #dctech, because noone uses tags in flickr
 3. this is not a real time app, only refreshed when you refresh the page
-4. Abstracting to any tag
+4. Abstracting to any tag/text
+5. Get browserify to work
+6. de-flickrify method.

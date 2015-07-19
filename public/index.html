@@ -11,10 +11,16 @@
   </head>
   <body ng-controller='ImagesController'>
 
-    <h1>Welcome to Flickarama!</h1>
-    <h2>The site that let's you search for combined tags on Flickr and Instagram!</h2>
+    <h1 class='text-center'><strong>Welcome to Flickarama!</strong></h1>
+    <h2 class='text-center'>The site that let's you search for combined tags on Flickr and Instagram in the past month ordered by comment count!</h2>
 
-
+    <form>
+      <div class="form-group">
+        <label>What would you like to search for?</label>
+        <input ng-model='typeTag' class="form-control" placeholder="Default search is dctech">
+        <button class='btn btn-default' ng-click='changeTag(typeTag)'>Search!</button>
+      </div>
+    </form>
 
     <div class='container'>
       <div class='row'>
@@ -24,3 +30,4 @@
 
   </body>
 </html>
+

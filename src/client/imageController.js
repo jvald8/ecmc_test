@@ -7,6 +7,13 @@ flickarama.controller('ImagesController', function($scope, $http) {
   $scope.secondsInMonth = 2592000;
   $scope.secondsAMonthAgo = $scope.currentTime - $scope.secondsInMonth;
 
+  $scope.changeTag = function(text) {
+    $scope.tag = text;
+    $scope.makeCalls();
+  }
+
+  $scope.makeCalls = function() {
+
   // Instagram Call
   var instagramUrl = 'https://api.instagram.com/v1/tags/' + $scope.tag + '/media/recent?client_id=' + $scope.IG_client_id + '&min_timestamp=' + $scope.secondsAMonthAgo + '&max_timestamp=' + $scope.currentTime + '&count=' + 10000 + '&callback=JSON_CALLBACK';
   $http.jsonp(instagramUrl)
@@ -37,8 +44,11 @@ flickarama.controller('ImagesController', function($scope, $http) {
 
         var commentObject = deFlickrify(data);
 
-        var commentCount = commentObject.comments.comment.length;
-
+        if(commentObject.comments.comment === undefined) {
+          var commentCount = 0;
+        } else {
+          var commentCount = commentObject.comments.comment.length;
+        }
         // getting images for the photo id
         var imageCall = 'https://api.flickr.com/services/rest/?method=flickr.photos.getSizes&api_key=' + $scope.api_key + '&photo_id=' + x.id + '&format=json'
         $http.get(imageCall)
@@ -48,6 +58,7 @@ flickarama.controller('ImagesController', function($scope, $http) {
 
           var firstImage = imageObject.sizes.size[4];
 
+          // add to instagram image array
           $scope.imagesArray.push({images: {low_resolution: {url: firstImage.source}}, comments: {comments: commentObject, count: commentCount}});
         })
         .error(function(data, status, headers, config) {
@@ -58,7 +69,7 @@ flickarama.controller('ImagesController', function($scope, $http) {
 
       })
       .error(function(data, status, headers, config) {
-        console.log('there was an error')
+        console.log('there was an error in flickr call')
       })
 
     })
@@ -68,8 +79,15 @@ flickarama.controller('ImagesController', function($scope, $http) {
     console.log('theres been an error in the flickr call of the ImageController')
   })
 
+}
+
+// initialize the call for #dctech search
+$scope.makeCalls();
+
 
 })
+
+
 
 // Helper methods
 // Cleans up and parses returned flickr data into a JSON object.

@@ -30,10 +30,10 @@
 
     <div class='container'>
       <div class='row'>
-        <div ng-repeat='image in imagesArray | orderBy:"-comments.count"' class='col-md-4' >
-          <p>Comments: {{image.comments.count}}</p>
-          <img src='{{image.images.low_resolution.url}}'>
-        </div>
+        <!--<div ng-repeat='image in imagesArray | orderBy:"-comments.count"' class='col-md-4' >-->
+          <!--<p>Comments: {{image.comments.count}}</p>-->
+          <img ng-repeat='image in imagesArray | orderBy:"-comments.count"' class='col-md-4' src='{{image.images.low_resolution.url}}'>
+        <!--</div>-->
       </div>
     </div>
 

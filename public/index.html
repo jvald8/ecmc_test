@@ -21,7 +21,7 @@
       <div class="form-group">
         <label>What would you like to search for?</label>
         <input name='tagField' ng-model='typeTag' class="form-control" placeholder="Default search is dctech" required ng-pattern='/^[a-zA-Z0-9]*$/'>
-        <span ng-show="myform.tagField.$error.pattern">Not a valid entry!</span>
+        <span ng-show="myform.tagField.$error.pattern">Please enter one word, no spaces :)</span>
         <button ng-hide="myform.tagField.$error.pattern" class='btn btn-default' ng-click='changeTag(typeTag)'>Search!</button>
       </div>
     </form>
